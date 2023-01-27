@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
     console.log(this.fibbonaci(10));
+    console.log(this.factorial(5));
   }
 
   fibbonaci(n:number) {
@@ -19,5 +20,13 @@ export class AppComponent implements OnInit {
       fib[i] = fib[i-1] + fib[i-2];
     }
     return fib;
+  }
+
+  factorial(n:number) {
+    let result = 1;
+    for(let i=2;i<=n;i++){
+      result = result * i;  
+    }
+    return result;
   }
 }
