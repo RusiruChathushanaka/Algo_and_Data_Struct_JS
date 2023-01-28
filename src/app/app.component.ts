@@ -17,6 +17,10 @@ export class AppComponent implements OnInit {
     console.log(this.isPowerofTwoBitwise(32));
   }
 
+  //Mathematical Algorithms
+
+  //Fionacci Series
+
   fibbonaci(n:number) {
     const fib =[0,1]
     for(let i=2; i<n; i++){
@@ -25,6 +29,8 @@ export class AppComponent implements OnInit {
     return fib;
   }
 
+  //Factorial
+
   factorial(n:number) {
     let result = 1;
     for(let i=2;i<=n;i++){
@@ -32,6 +38,8 @@ export class AppComponent implements OnInit {
     }
     return result;
   }
+
+  //Prime Number
 
   isPrime(n:number){
     if(n<2){
@@ -44,6 +52,8 @@ export class AppComponent implements OnInit {
     }
     return true;
   }
+
+  //Power of Two
 
   isPowerOfTwo(n:number){
     if(n<1){
@@ -58,10 +68,16 @@ export class AppComponent implements OnInit {
     return true;
   }
 
+  //Power of Two Bitwise
+
   isPowerofTwoBitwise(n:number){
     if(n<1){
       return false;
     }
     return (n & (n-1)) === 0;
   }
+
+  //Recursive Algorithms
+
+
 }
