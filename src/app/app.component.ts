@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
     console.log(this.isPrime(8));
     console.log(this.isPowerOfTwo(32));
     console.log(this.isPowerofTwoBitwise(32));
+    console.log(this.recursiveFibonacci(6));
   }
 
   //Mathematical Algorithms
@@ -79,5 +80,13 @@ export class AppComponent implements OnInit {
 
   //Recursive Algorithms
 
+  //Fibonacci Series
+
+  recursiveFibonacci(n:number): number{
+    if(n<2){
+      return n;
+    }
+    return this.recursiveFibonacci(n-1) + this.recursiveFibonacci(n-2);
+  }
 
 }
