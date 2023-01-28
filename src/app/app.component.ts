@@ -20,6 +20,10 @@ export class AppComponent implements OnInit {
     console.log(this.linearSearch([1,2,3,4,5,6,7,8,9,10], 5));
     console.log(this.binarySearch([1,2,3,4,5,6,7,8,9,10], 8));
     console.log(this.recursiveBinarySearch([1,2,3,4,5,6,7,8,9,10], 9));
+    console.log(this.bubbleSort([5,4,3,2,1,-5,7,15,-8]));
+    console.log(this.insertionSort([5,4,3,2,1,-5,7,15,-8]));
+    console.log(this.quickSort([5,4,3,2,1,-5,7,15,-8]));
+    console.log(this.mergeSort([5,4,3,2,1,-5,7,15,-8]));
   }
 
   //Mathematical Algorithms
@@ -154,6 +158,83 @@ export class AppComponent implements OnInit {
     }else{
       return this.Search(arr, n, start, mid-1);
     }
+  }
+
+  //Sorting Algorithms
+
+  //Bubble Sort
+
+  bubbleSort(arr:number[]){
+    for(let i=0;i<arr.length;i++){
+      for(let j=0;j<arr.length;j++){
+        if(arr[j]>arr[j+1]){
+          let temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
+      }
+    }
+    return arr;
+  }
+
+  //Insertion Sort
+
+  insertionSort(arr:number[]){
+    for(let i=1;i<arr.length;i++){
+      let currentVal = arr[i];
+      for(var j=i-1;j>=0 && arr[j]>currentVal;j--){
+        arr[j+1] = arr[j];
+      }
+      arr[j+1] = currentVal;
+    }
+    return arr;
+  }
+
+  //Quick Sort
+
+  quickSort(arr:number[]): number[]{
+    if(arr.length<=1){
+      return arr;
+    }
+    let pivot = arr[arr.length-1];
+    let left = [];
+    let right = [];
+    for(let i=0;i<arr.length-1;i++){
+      if(arr[i]<pivot){
+        left.push(arr[i]);
+      }else{
+        right.push(arr[i]);
+      }
+    }
+    return [...this.quickSort(left), pivot, ...this.quickSort(right)];
+  }
+
+  //Merge Sort
+
+  mergeSort(arr:number[]): number[]{
+    if(arr.length<=1){
+      return arr;
+    }
+    let mid = Math.floor(arr.length/2);
+    let left = arr.slice(0,mid);
+    let right = arr.slice(mid);
+    return this.merge(this.mergeSort(left), this.mergeSort(right));
+  }
+
+  merge(left:number[], right:number[]): number[]{
+    let result = [];
+    let leftIndex = 0;
+    let rightIndex = 0;
+    while(leftIndex<left.length && rightIndex<right.length){
+      if(left[leftIndex]<right[rightIndex]){
+        result.push(left[leftIndex]);
+        leftIndex++;
+      }else{
+        result.push(right[rightIndex]);
+        rightIndex++;
+      }
+    }
+    return [...result, ...left.slice(leftIndex), ...right.slice(rightIndex)];
   }
 
 }
