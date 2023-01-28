@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.fibbonaci(10));
     console.log(this.factorial(5));
+    console.log(this.isPrime(8));
   }
 
   fibbonaci(n:number) {
@@ -28,5 +29,17 @@ export class AppComponent implements OnInit {
       result = result * i;  
     }
     return result;
+  }
+
+  isPrime(n:number){
+    if(n<2){
+      return false;
+    }
+    for(let i=2;i<n;i++){
+      if(n%i===0){
+        return false;
+      }
+    }
+    return true;
   }
 }
