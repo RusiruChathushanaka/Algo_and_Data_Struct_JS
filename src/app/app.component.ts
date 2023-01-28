@@ -24,6 +24,9 @@ export class AppComponent implements OnInit {
     console.log(this.insertionSort([5,4,3,2,1,-5,7,15,-8]));
     console.log(this.quickSort([5,4,3,2,1,-5,7,15,-8]));
     console.log(this.mergeSort([5,4,3,2,1,-5,7,15,-8]));
+    console.log(this.cartesianProduct([5,4,3,2,1], [5,4,3,2,1]));
+    console.log(this.climbingStairs(5));
+    console.log(this.towerOfHanoi(3, 'A', 'B', 'C'));
   }
 
   //Mathematical Algorithms
@@ -235,6 +238,41 @@ export class AppComponent implements OnInit {
       }
     }
     return [...result, ...left.slice(leftIndex), ...right.slice(rightIndex)];
+  }
+
+  //Miscellaneous Algorithms
+
+  //Cartesian Product
+
+  cartesianProduct(arr1:number[], arr2:number[]){
+    let result = [];
+    for(let i=0;i<arr1.length;i++){
+      for(let j=0;j<arr2.length;j++){
+        result.push([arr1[i], arr2[j]]);
+      }
+    }
+    return result;
+  }
+
+  //Climbing Stairs
+
+  climbingStairs(n:number): number{
+    if(n<=2){
+      return n;
+    }
+    return this.climbingStairs(n-1) + this.climbingStairs(n-2);
+  }
+
+  //Tower of Hanoi
+
+  towerOfHanoi(n:number, from:string, to:string, aux:string){
+    if(n===1){
+      console.log(`Move disk 1 from ${from} to ${to}`);
+      return;
+    }
+    this.towerOfHanoi(n-1, from, aux, to);
+    console.log(`Move disk ${n} from ${from} to ${to}`);
+    this.towerOfHanoi(n-1, aux, to, from);
   }
 
 }
