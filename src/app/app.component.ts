@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
     console.log(this.recursiveFactorial(5));
     console.log(this.linearSearch([1,2,3,4,5,6,7,8,9,10], 5));
     console.log(this.binarySearch([1,2,3,4,5,6,7,8,9,10], 8));
+    console.log(this.recursiveBinarySearch([1,2,3,4,5,6,7,8,9,10], 9));
   }
 
   //Mathematical Algorithms
@@ -132,6 +133,27 @@ export class AppComponent implements OnInit {
       }
     }
     return -1;
+  }
+
+  //Recursive Binary Search
+
+  recursiveBinarySearch(arr:number[], n:number){
+    return this.Search(arr, n, 0, arr.length-1);
+  }
+
+  Search(arr:number[], n:number, start:number, end:number): number{
+    if(start>end){
+      return -1;
+    }
+    let mid = Math.floor((start+end)/2);
+    if(arr[mid]===n){
+      return mid;
+    }
+    if(arr[mid]<n){
+      return this.Search(arr, n, mid+1, end);
+    }else{
+      return this.Search(arr, n, start, mid-1);
+    }
   }
 
 }
