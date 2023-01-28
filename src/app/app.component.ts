@@ -16,6 +16,9 @@ export class AppComponent implements OnInit {
     console.log(this.isPowerOfTwo(32));
     console.log(this.isPowerofTwoBitwise(32));
     console.log(this.recursiveFibonacci(6));
+    console.log(this.recursiveFactorial(5));
+    console.log(this.linearSearch([1,2,3,4,5,6,7,8,9,10], 5));
+    console.log(this.binarySearch([1,2,3,4,5,6,7,8,9,10], 8));
   }
 
   //Mathematical Algorithms
@@ -87,6 +90,48 @@ export class AppComponent implements OnInit {
       return n;
     }
     return this.recursiveFibonacci(n-1) + this.recursiveFibonacci(n-2);
+  }
+
+  //Factorial
+
+  recursiveFactorial(n:number): number{
+    if(n===0){
+      return 1;
+    }
+    return n * this.recursiveFactorial(n-1);
+  }
+
+  //searching Algorithms
+
+  //Linear Search
+
+  linearSearch(arr:number[], n:number){
+    for(let i=0;i<arr.length;i++){
+      if(arr[i]===n){
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  //binary search
+
+  binarySearch(arr:number[], n:number){
+    let start = 0;
+    let end = arr.length-1;
+    
+    while(start<=end){
+      let mid = Math.floor((start+end)/2);
+      if(arr[mid]===n){
+        return mid;
+      }
+      if(arr[mid]<n){
+        start = mid+1;
+      }else{
+        end = mid-1;
+      }
+    }
+    return -1;
   }
 
 }
