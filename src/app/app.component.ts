@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
     console.log(this.fibbonaci(10));
     console.log(this.factorial(5));
     console.log(this.isPrime(8));
+    console.log(this.isPowerOfTwo(32));
+    console.log(this.isPowerofTwoBitwise(32));
   }
 
   fibbonaci(n:number) {
@@ -41,5 +43,25 @@ export class AppComponent implements OnInit {
       }
     }
     return true;
+  }
+
+  isPowerOfTwo(n:number){
+    if(n<1){
+      return false;
+    }
+    while(n>1){
+      if(n%2!==0){
+        return false;
+      }
+      n = n/2;
+    }
+    return true;
+  }
+
+  isPowerofTwoBitwise(n:number){
+    if(n<1){
+      return false;
+    }
+    return (n & (n-1)) === 0;
   }
 }
