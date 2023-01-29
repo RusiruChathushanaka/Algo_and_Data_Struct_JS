@@ -7,6 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'Algo_and_Data_Struct_JS';
+
+  //Data Structures
+
+  //Array
+
+  private arr = [1,2,3,4,5,6,7,8,9,10,'rusiru','chathushanka'];
+
+  //Object
+
+  private obj={
+    name: 'John',
+    age: 30,
+    city: 'New York'
+  }
   
   
   ngOnInit(): void {
@@ -27,6 +41,18 @@ export class AppComponent implements OnInit {
     console.log(this.cartesianProduct([5,4,3,2,1], [5,4,3,2,1]));
     console.log(this.climbingStairs(5));
     console.log(this.towerOfHanoi(3, 'A', 'B', 'C'));
+
+    this.arr.push(11);
+
+    console.log(this.arr);
+
+    for(let item of this.arr){
+      console.log(item);
+    }
+
+    console.log(this.obj);
+    console.log(this.obj.name);
+    console.log(this.obj['name']);
   }
 
   //Mathematical Algorithms
@@ -274,5 +300,6 @@ export class AppComponent implements OnInit {
     console.log(`Move disk ${n} from ${from} to ${to}`);
     this.towerOfHanoi(n-1, aux, to, from);
   }
+
 
 }
