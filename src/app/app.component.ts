@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'Algo_and_Data_Struct_JS';
@@ -12,17 +12,16 @@ export class AppComponent implements OnInit {
 
   //Array
 
-  private arr = [1,2,3,4,5,6,7,8,9,10,'rusiru','chathushanka'];
+  private arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'rusiru', 'chathushanka'];
 
   //Object
 
-  private obj={
+  private obj = {
     name: 'John',
     age: 30,
-    city: 'New York'
-  }
-  
-  
+    city: 'New York',
+  };
+
   ngOnInit(): void {
     console.log(this.fibbonaci(10));
     console.log(this.factorial(5));
@@ -31,14 +30,14 @@ export class AppComponent implements OnInit {
     console.log(this.isPowerofTwoBitwise(32));
     console.log(this.recursiveFibonacci(6));
     console.log(this.recursiveFactorial(5));
-    console.log(this.linearSearch([1,2,3,4,5,6,7,8,9,10], 5));
-    console.log(this.binarySearch([1,2,3,4,5,6,7,8,9,10], 8));
-    console.log(this.recursiveBinarySearch([1,2,3,4,5,6,7,8,9,10], 9));
-    console.log(this.bubbleSort([5,4,3,2,1,-5,7,15,-8]));
-    console.log(this.insertionSort([5,4,3,2,1,-5,7,15,-8]));
-    console.log(this.quickSort([5,4,3,2,1,-5,7,15,-8]));
-    console.log(this.mergeSort([5,4,3,2,1,-5,7,15,-8]));
-    console.log(this.cartesianProduct([5,4,3,2,1], [5,4,3,2,1]));
+    console.log(this.linearSearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5));
+    console.log(this.binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 8));
+    console.log(this.recursiveBinarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 9));
+    console.log(this.bubbleSort([5, 4, 3, 2, 1, -5, 7, 15, -8]));
+    console.log(this.insertionSort([5, 4, 3, 2, 1, -5, 7, 15, -8]));
+    console.log(this.quickSort([5, 4, 3, 2, 1, -5, 7, 15, -8]));
+    console.log(this.mergeSort([5, 4, 3, 2, 1, -5, 7, 15, -8]));
+    console.log(this.cartesianProduct([5, 4, 3, 2, 1], [5, 4, 3, 2, 1]));
     console.log(this.climbingStairs(5));
     console.log(this.towerOfHanoi(3, 'A', 'B', 'C'));
 
@@ -46,7 +45,7 @@ export class AppComponent implements OnInit {
 
     console.log(this.arr);
 
-    for(let item of this.arr){
+    for (let item of this.arr) {
       console.log(item);
     }
 
@@ -59,32 +58,32 @@ export class AppComponent implements OnInit {
 
   //Fionacci Series
 
-  fibbonaci(n:number) {
-    const fib =[0,1]
-    for(let i=2; i<n; i++){
-      fib[i] = fib[i-1] + fib[i-2];
+  fibbonaci(n: number) {
+    const fib = [0, 1];
+    for (let i = 2; i < n; i++) {
+      fib[i] = fib[i - 1] + fib[i - 2];
     }
     return fib;
   }
 
   //Factorial
 
-  factorial(n:number) {
+  factorial(n: number) {
     let result = 1;
-    for(let i=2;i<=n;i++){
-      result = result * i;  
+    for (let i = 2; i <= n; i++) {
+      result = result * i;
     }
     return result;
   }
 
   //Prime Number
 
-  isPrime(n:number){
-    if(n<2){
+  isPrime(n: number) {
+    if (n < 2) {
       return false;
     }
-    for(let i=2;i<n;i++){
-      if(n%i===0){
+    for (let i = 2; i < n; i++) {
+      if (n % i === 0) {
         return false;
       }
     }
@@ -93,55 +92,55 @@ export class AppComponent implements OnInit {
 
   //Power of Two
 
-  isPowerOfTwo(n:number){
-    if(n<1){
+  isPowerOfTwo(n: number) {
+    if (n < 1) {
       return false;
     }
-    while(n>1){
-      if(n%2!==0){
+    while (n > 1) {
+      if (n % 2 !== 0) {
         return false;
       }
-      n = n/2;
+      n = n / 2;
     }
     return true;
   }
 
   //Power of Two Bitwise
 
-  isPowerofTwoBitwise(n:number){
-    if(n<1){
+  isPowerofTwoBitwise(n: number) {
+    if (n < 1) {
       return false;
     }
-    return (n & (n-1)) === 0;
+    return (n & (n - 1)) === 0;
   }
 
   //Recursive Algorithms
 
   //Fibonacci Series
 
-  recursiveFibonacci(n:number): number{
-    if(n<2){
+  recursiveFibonacci(n: number): number {
+    if (n < 2) {
       return n;
     }
-    return this.recursiveFibonacci(n-1) + this.recursiveFibonacci(n-2);
+    return this.recursiveFibonacci(n - 1) + this.recursiveFibonacci(n - 2);
   }
 
   //Factorial
 
-  recursiveFactorial(n:number): number{
-    if(n===0){
+  recursiveFactorial(n: number): number {
+    if (n === 0) {
       return 1;
     }
-    return n * this.recursiveFactorial(n-1);
+    return n * this.recursiveFactorial(n - 1);
   }
 
   //searching Algorithms
 
   //Linear Search
 
-  linearSearch(arr:number[], n:number){
-    for(let i=0;i<arr.length;i++){
-      if(arr[i]===n){
+  linearSearch(arr: number[], n: number) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === n) {
         return i;
       }
     }
@@ -150,19 +149,19 @@ export class AppComponent implements OnInit {
 
   //binary search
 
-  binarySearch(arr:number[], n:number){
+  binarySearch(arr: number[], n: number) {
     let start = 0;
-    let end = arr.length-1;
-    
-    while(start<=end){
-      let mid = Math.floor((start+end)/2);
-      if(arr[mid]===n){
+    let end = arr.length - 1;
+
+    while (start <= end) {
+      let mid = Math.floor((start + end) / 2);
+      if (arr[mid] === n) {
         return mid;
       }
-      if(arr[mid]<n){
-        start = mid+1;
-      }else{
-        end = mid-1;
+      if (arr[mid] < n) {
+        start = mid + 1;
+      } else {
+        end = mid - 1;
       }
     }
     return -1;
@@ -170,22 +169,22 @@ export class AppComponent implements OnInit {
 
   //Recursive Binary Search
 
-  recursiveBinarySearch(arr:number[], n:number){
-    return this.Search(arr, n, 0, arr.length-1);
+  recursiveBinarySearch(arr: number[], n: number) {
+    return this.Search(arr, n, 0, arr.length - 1);
   }
 
-  Search(arr:number[], n:number, start:number, end:number): number{
-    if(start>end){
+  Search(arr: number[], n: number, start: number, end: number): number {
+    if (start > end) {
       return -1;
     }
-    let mid = Math.floor((start+end)/2);
-    if(arr[mid]===n){
+    let mid = Math.floor((start + end) / 2);
+    if (arr[mid] === n) {
       return mid;
     }
-    if(arr[mid]<n){
-      return this.Search(arr, n, mid+1, end);
-    }else{
-      return this.Search(arr, n, start, mid-1);
+    if (arr[mid] < n) {
+      return this.Search(arr, n, mid + 1, end);
+    } else {
+      return this.Search(arr, n, start, mid - 1);
     }
   }
 
@@ -193,13 +192,13 @@ export class AppComponent implements OnInit {
 
   //Bubble Sort
 
-  bubbleSort(arr:number[]){
-    for(let i=0;i<arr.length;i++){
-      for(let j=0;j<arr.length;j++){
-        if(arr[j]>arr[j+1]){
+  bubbleSort(arr: number[]) {
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < arr.length; j++) {
+        if (arr[j] > arr[j + 1]) {
           let temp = arr[j];
-          arr[j] = arr[j+1];
-          arr[j+1] = temp;
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
         }
       }
     }
@@ -208,30 +207,30 @@ export class AppComponent implements OnInit {
 
   //Insertion Sort
 
-  insertionSort(arr:number[]){
-    for(let i=1;i<arr.length;i++){
+  insertionSort(arr: number[]) {
+    for (let i = 1; i < arr.length; i++) {
       let currentVal = arr[i];
-      for(var j=i-1;j>=0 && arr[j]>currentVal;j--){
-        arr[j+1] = arr[j];
+      for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+        arr[j + 1] = arr[j];
       }
-      arr[j+1] = currentVal;
+      arr[j + 1] = currentVal;
     }
     return arr;
   }
 
   //Quick Sort
 
-  quickSort(arr:number[]): number[]{
-    if(arr.length<=1){
+  quickSort(arr: number[]): number[] {
+    if (arr.length <= 1) {
       return arr;
     }
-    let pivot = arr[arr.length-1];
+    let pivot = arr[arr.length - 1];
     let left = [];
     let right = [];
-    for(let i=0;i<arr.length-1;i++){
-      if(arr[i]<pivot){
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] < pivot) {
         left.push(arr[i]);
-      }else{
+      } else {
         right.push(arr[i]);
       }
     }
@@ -240,25 +239,25 @@ export class AppComponent implements OnInit {
 
   //Merge Sort
 
-  mergeSort(arr:number[]): number[]{
-    if(arr.length<=1){
+  mergeSort(arr: number[]): number[] {
+    if (arr.length <= 1) {
       return arr;
     }
-    let mid = Math.floor(arr.length/2);
-    let left = arr.slice(0,mid);
+    let mid = Math.floor(arr.length / 2);
+    let left = arr.slice(0, mid);
     let right = arr.slice(mid);
     return this.merge(this.mergeSort(left), this.mergeSort(right));
   }
 
-  merge(left:number[], right:number[]): number[]{
+  merge(left: number[], right: number[]): number[] {
     let result = [];
     let leftIndex = 0;
     let rightIndex = 0;
-    while(leftIndex<left.length && rightIndex<right.length){
-      if(left[leftIndex]<right[rightIndex]){
+    while (leftIndex < left.length && rightIndex < right.length) {
+      if (left[leftIndex] < right[rightIndex]) {
         result.push(left[leftIndex]);
         leftIndex++;
-      }else{
+      } else {
         result.push(right[rightIndex]);
         rightIndex++;
       }
@@ -270,10 +269,10 @@ export class AppComponent implements OnInit {
 
   //Cartesian Product
 
-  cartesianProduct(arr1:number[], arr2:number[]){
+  cartesianProduct(arr1: number[], arr2: number[]) {
     let result = [];
-    for(let i=0;i<arr1.length;i++){
-      for(let j=0;j<arr2.length;j++){
+    for (let i = 0; i < arr1.length; i++) {
+      for (let j = 0; j < arr2.length; j++) {
         result.push([arr1[i], arr2[j]]);
       }
     }
@@ -282,24 +281,22 @@ export class AppComponent implements OnInit {
 
   //Climbing Stairs
 
-  climbingStairs(n:number): number{
-    if(n<=2){
+  climbingStairs(n: number): number {
+    if (n <= 2) {
       return n;
     }
-    return this.climbingStairs(n-1) + this.climbingStairs(n-2);
+    return this.climbingStairs(n - 1) + this.climbingStairs(n - 2);
   }
 
   //Tower of Hanoi
 
-  towerOfHanoi(n:number, from:string, to:string, aux:string){
-    if(n===1){
+  towerOfHanoi(n: number, from: string, to: string, aux: string) {
+    if (n === 1) {
       console.log(`Move disk 1 from ${from} to ${to}`);
       return;
     }
-    this.towerOfHanoi(n-1, from, aux, to);
+    this.towerOfHanoi(n - 1, from, aux, to);
     console.log(`Move disk ${n} from ${from} to ${to}`);
-    this.towerOfHanoi(n-1, aux, to, from);
+    this.towerOfHanoi(n - 1, aux, to, from);
   }
-
-
 }
